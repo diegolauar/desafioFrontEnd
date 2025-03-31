@@ -44,14 +44,10 @@ const Alunos = () => {
         }
     };
 
- 
+
     const logout = () => {
         localStorage.clear();
         navigate('/');
-    };
-
-    const editAluno = (id: number) => {
-        navigate(`/aluno/novo/${id}`);
     };
 
     const deleteAluno = async (id: number) => {
@@ -65,15 +61,16 @@ const Alunos = () => {
         }
     };
 
+
     return (
         <div style={{ padding: '20px', maxWidth: '800px', margin: 'auto' }}>
             <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
                 <Typography variant="h6">Bem-vindo, <strong>{email}</strong>!</Typography>
-                <Button variant="contained" color="primary" component={Link} to='/aluno/novo/0'>Novo Aluno</Button>
-                 <Button style={{ width: '20px', padding: '10px' }} type="submit" variant="contained" onClick={logout} color="error" fullWidth>Logout</Button>
-      
+
+                <Button style={{ width: '20px', padding: '10px' }} type="submit" variant="contained" onClick={logout} color="error" fullWidth>Logout</Button>
+
             </header>
-            
+
             <TextField
                 fullWidth
                 variant="outlined"
@@ -82,9 +79,9 @@ const Alunos = () => {
                 onChange={(e) => searchAlunos(e.target.value)}
                 style={{ marginBottom: '20px' }}
             />
-            
+
             <Typography variant="h5" gutterBottom>Relação de alunos</Typography>
-            
+
             {/* Renderizando a lista de alunos com base no filtro ou na lista completa */}
             {(searchInput.length > 0 ? filtro : alunos).map(aluno => (
                 <Card key={aluno.id} variant="outlined" style={{ marginBottom: '10px' }}>
@@ -95,8 +92,6 @@ const Alunos = () => {
                         <Typography><strong>Active:</strong> true</Typography>
                     </CardContent>
                     <CardActions>
-                        <IconButton onClick={() => editAluno(aluno.id)} color="primary">
-                        </IconButton>
                         <IconButton onClick={() => deleteAluno(aluno.id)} color="secondary">
                         </IconButton>
                     </CardActions>
