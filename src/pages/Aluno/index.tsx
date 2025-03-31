@@ -44,7 +44,7 @@ const Alunos = () => {
         }
     };
 
-
+ 
     const logout = () => {
         localStorage.clear();
         navigate('/');
