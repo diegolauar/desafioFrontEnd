@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { IconButton, Button, TextField, Typography, Card, CardContent, CardActions } from '@mui/material';
 import api from '../../services/api';
 
@@ -44,6 +44,7 @@ const Alunos = () => {
         }
     };
 
+
     const logout = () => {
         localStorage.clear();
         navigate('/');
@@ -69,8 +70,8 @@ const Alunos = () => {
             <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
                 <Typography variant="h6">Bem-vindo, <strong>{email}</strong>!</Typography>
                 <Button variant="contained" color="primary" component={Link} to='/aluno/novo/0'>Novo Aluno</Button>
-                <IconButton onClick={logout} color="error">
-                </IconButton>
+                 <Button style={{ width: '20px', padding: '10px' }} type="submit" variant="contained" onClick={logout} color="error" fullWidth>Logout</Button>
+      
             </header>
             
             <TextField
